@@ -1,9 +1,9 @@
-import { hash } from "crypto";
 import { User } from "../models/user.model.js";
 import bcryptjs from 'bcryptjs';
+import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
 
 export const signup = async (req, res) => {
-    const {email, password, name} = req.body();
+    const { email, password, name } = req.body;
 
     try {
         if(!email || !password || !name)
